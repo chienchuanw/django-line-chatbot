@@ -17,7 +17,7 @@ SECRET_KEY = "django-insecure-ay#&613-=9cfn3dsf4$t-=8s=qzykqtq7#+2k11hy0x-1tpo0h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://9551-61-220-182-115.ngrok-free.app"]
 
 
 # Application definition
@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "chatbots",
+    "chatbots.apps.ChatbotsConfig",
 ]
 
 MIDDLEWARE = [
