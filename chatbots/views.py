@@ -19,15 +19,15 @@ def callback(request):
         body = request.body.decode("utf-8")
 
         try:
-            events = parser.parse(body, signature)  # 傳入的事件
+            events = parser.parse(body, signature)
         except InvalidSignatureError:
             return HttpResponseForbidden()
         except LineBotApiError:
             return HttpResponseBadRequest()
 
         for event in events:
-            if isinstance(event, MessageEvent):  # 如果有訊息事件
-                line_bot_api.reply_message(  # 回復傳入的訊息文字
+            if isinstance(event, MessageEvent):
+                line_bot_api.reply_message(
                     event.reply_token, TextSendMessage(text=event.message.text)
                 )
         return HttpResponse()
